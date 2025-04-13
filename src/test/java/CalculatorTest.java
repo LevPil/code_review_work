@@ -6,26 +6,26 @@ class CalculatorTest {
 
     @Test
     void add() {
-        //TODO inser your realisation in test-method add
+        assertEquals(2, calculator.add(1, 1));
     }
 
     @Test
     void dif() {
-        //TODO inser your realisation in test-method dif
+        assertEquals(0, calculator.dif(1, 1));
     }
 
     @Test
     void div() {
-        //TODO inser your realisation in test-method div
+        assertEquals(5, calculator.div(1, 5));
     }
 
     @Test
     void times() {
-        //TODO inser your realisation in test-method times
+        assertEquals(2, calculator.times(2, 1));
     }
 
     @Test
     void solver() {
-        //TODO inser your realisation in test-method solver
+        assertEquals(2, calculator.solver(2, 4));
     }
 }
