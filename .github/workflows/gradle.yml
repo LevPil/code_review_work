@@ -9,7 +9,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    
+    permissions:
+      contents: read
+
     steps:
     - uses: actions/checkout@v4
     - name: Set up JDK 17
@@ -20,10 +22,15 @@ jobs:
         
     - name: Setup Gradle
       uses: gradle/actions/setup-gradle@v4
+      with:
+        gradle-version: '7.0'  # Убедитесь, что используете подходящую версию
 
-    - name: Разрешение
-      run: chmod +x gradlew
+    - name: Установить разрешения для gradlew
+      run: chmod +x gradlew  # Устанавливаем права на выполнение
       
+    - name: Clean Gradle cache
+      run: ./gradlew clean  # Очистка кэша перед сборкой
+
     - name: Build with Gradle Wrapper
       run: ./gradlew build
 
