@@ -23,7 +23,7 @@ jobs:
     - name: Setup Gradle
       uses: gradle/actions/setup-gradle@v4
       with:
-        gradle-version: '7.0'  # Убедитесь, что используете подходящую версию
+        gradle-version: '8.0'  # Указана новейшая версия Gradle
 
     - name: Установить разрешения для gradlew
       run: chmod +x gradlew  # Устанавливаем права на выполнение
