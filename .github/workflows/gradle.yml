@@ -28,8 +28,7 @@ jobs:
     - name: Установить разрешения для gradlew
       run: chmod +x gradlew  # Устанавливаем права на выполнение
       
-    - name: Clean Gradle cache
-      run: ./gradlew clean  # Очистка кэша перед сборкой
+
 
     - name: Build with Gradle Wrapper
       run: ./gradlew build
