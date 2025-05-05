@@ -20,6 +20,11 @@ jobs:
       contents: read
     steps:
     - uses: actions/checkout@v4
+    - name: Install JDK 13
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y openjdk-13-jdk
+        echo "JAVA_HOME=/usr/lib/jvm/java-13-openjdk-amd64" >> $GITHUB_ENV
 
     - name: Make gradlew executable
       run: chmod +x gradlew
@@ -31,7 +36,7 @@ jobs:
         distribution: 'temurin'
 
     - name: Setup Gradle
-      uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
+      uses: gradle/actions/setup-gradle@v4
 
     - name: Clean Gradle cache
       run: ./gradlew clean
@@ -41,7 +46,7 @@ jobs:
 
   dependency-submission:
 
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     permissions:
       contents: write
 
