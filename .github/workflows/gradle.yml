@@ -17,7 +17,11 @@ on:
   
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        java-version: [11, 23, 17]
     permissions:
       contents: read
     steps:
@@ -26,12 +30,12 @@ jobs:
     - name: Make gradlew executable
       run: chmod +x gradlew
 
-    - name: Set up JDK 11
+    - name: Set up JDK
       uses: actions/setup-java@v4
       with:
-        java-version: '11'
+        java-version: ${{ matrix.java-version }}
         distribution: 'temurin'
-
+        
     # Configure Gradle for optimal use in GitHub Actions, including caching of downloaded dependencies.
     # See: https://github.com/gradle/actions/blob/main/setup-gradle/README.md
     - name: Setup Gradle
