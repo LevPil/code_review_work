@@ -41,7 +41,7 @@ jobs:
 
   dependency-submission:
 
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     permissions:
       contents: write
 
@@ -54,7 +54,7 @@ jobs:
     - name: Set up JDK
       uses: actions/setup-java@v4
       with:
-        java-version: ${{ matrix.java-version }}
+        java-version: 11
         distribution: 'temurin'
         
     - name: Generate and submit dependency graph
