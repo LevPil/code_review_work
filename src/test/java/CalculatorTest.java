@@ -11,7 +11,7 @@ class CalculatorTest {
 
     @Test
     void dif() {
-        assertEquals(1, calculator.dif(4, 2));
+        assertEquals(1, calculator.dif(3, 2));
     }
 
     @Test
